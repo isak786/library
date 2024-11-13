@@ -16,7 +16,7 @@
         <div class="col-md-6 col-lg-7 left-section">
           <div class="content-wrapper text-center">
             <div class="rounded-box p-5">
-              <h1 class="left-title mb-3">Log In, Account!</h1>
+              <h1 class="left-title mb-3">Don't Have An Account Yet?</h1>
               <p class="left-description mb-4">
                 Sign up if you still don't have an account ...
               </p>
