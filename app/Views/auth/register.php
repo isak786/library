@@ -32,43 +32,43 @@
         <div class="col-md-8 col-lg-5">
           <div class="form-container">
             <h2 class="text-start mb-5">Sign Up</h2>
-            <form>
+            <form action="<?= site_url('/auth/processSignup') ?>" method="post">
               <div class="row">
                   <div class="col-md-6">
                       <div class="mb-3 icon-input">
                           <span class="form-icon"><i class="bi bi-person"></i></span>
-                          <input type="text" class="form-control" placeholder="First Name" required />
+                          <input id="first_name" name="first_name" type="text" class="form-control" placeholder="First Name" required />
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="mb-3 icon-input">
                           <span class="form-icon"><i class="bi bi-person"></i></span>
-                          <input type="text" class="form-control" placeholder="Last Name" required />
+                          <input id="surname" name="surname"type="text" class="form-control" placeholder="Last Name" required />
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="mb-3 icon-input">
                           <span class="form-icon"><i class="bi bi-envelope"></i></span>
-                          <input type="email" class="form-control" placeholder="Email" required />
+                          <input id="email" name="email" type="email" class="form-control" placeholder="Email" required />
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="mb-3 icon-input">
                           <span class="form-icon"><i class="bi bi-telephone"></i></span>
-                          <input type="number" class="form-control" placeholder="Phone Number" required />
+                          <input id="phone" name="phone" type="number" class="form-control" placeholder="Phone Number" required />
                       </div>
                   </div>
               </div>
               <div class="mb-3 icon-input">
                   <span class="form-icon"><i class="bi bi-lock"></i></span>
-                  <input type="password" class="form-control" placeholder="Password" required />
+                  <input id="password" name="password" type="password" class="form-control" placeholder="Password" required />
               </div>
               <div class="mb-3 icon-input">
                   <span class="form-icon"><i class="bi bi-calendar"></i></span>
-                  <input type="date" class="form-control" placeholder="Date of Birth" required />
+                  <input id="dob" name="dob" type="date" class="form-control" placeholder="Date of Birth" required />
               </div>
               <div class="mb-3 icon-input">
-                  <select class="form-control" required>
+                  <select id="gender" name="gender" class="form-control" required>
                       <option value="" disabled selected>Select Gender</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
