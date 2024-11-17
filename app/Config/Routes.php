@@ -8,4 +8,9 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('/login', 'AuthController::login');
 $routes->get('/register', 'AuthController::register');
-// $route['default_controller'] = 'Home';
+
+
+$routes->get('/inventory','InventoryController::index');
+$routes->get('/contracts','ContractsController::index');
+$routes->get('/branches','BranchesController::index');
+$routes->get('/branchlibraries','BranchLibrarian::index');
