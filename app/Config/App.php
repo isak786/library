@@ -16,12 +16,10 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-<<<<<<< HEAD
-    public string $baseURL = 'http://localhost/library/public/';
-=======
+
     public string $baseURL = 'http://localhost/library/public';
     
->>>>>>> origin/Front-end-Branch---2
+
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
