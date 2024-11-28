@@ -102,7 +102,7 @@ class AuthController extends BaseController
                     'logged_in' => true,
                 ]);
 
-                return redirect()->to('/dashboard')->with('success', 'Login successful!');
+                return redirect()->to('/contracts')->with('success', 'Login successful!');
             } else {
                 return redirect()->back()->with('error', 'Invalid email or password.');
             }
