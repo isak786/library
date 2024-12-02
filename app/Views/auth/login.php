@@ -31,13 +31,15 @@
         <div class="col-md-8 col-lg-5">
           <div class="form-container">
             <h2 class="text-start mb-5">Sign In</h2>
-            <form action="<?= site_url('/inventory') ?>">
+            <form action="<?= site_url('/auth/processLogin') ?>" method="post">
               <div class="mb-3 icon-input">
                 <span class="form-icon"><i class="bi bi-envelope"></i></span>
                 <input
                   type="email"
                   class="form-control"
                   placeholder="Email"
+                  name="email"
+                  id="email"
                   required
                 />
               </div>
@@ -48,6 +50,8 @@
                   type="password"
                   class="form-control"
                   placeholder="Password"
+                  name="password"
+                  id="passsword"
                   required
                 />
               </div>

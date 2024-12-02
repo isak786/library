@@ -30,6 +30,8 @@ class Database extends Config
         'username'     => 'root',
         'password'     => '',
         'database'     => 'amlibrary',
+        'password'     => '',
+        'database'     => 'amlibrarydata',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
@@ -41,7 +43,7 @@ class Database extends Config
         'compress'     => false,
         'strictOn'     => false,
         'failover'     => [],
-        'port'         => 3310,
+        'port'         => 3306,
         'numberNative' => false,
         'dateFormat'   => [
             'date'     => 'Y-m-d',
