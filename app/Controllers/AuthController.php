@@ -58,6 +58,7 @@ class AuthController extends BaseController
                 'dob' => $dob,
                 'gender' => $gender,
                 'password' => $hashedPassword,
+                'role' => 'guest', // Default role for new users
                 'created_at' => Time::now(),
                 'updated_at' => Time::now(),
             ];
@@ -95,10 +96,11 @@ class AuthController extends BaseController
             $user = $builder->where('email', $email)->get()->getRow();
 
             if ($user && password_verify($password, $user->password)) {
-                // Set session data
+                // Set session data including the user's role
                 session()->set([
                     'user_id' => $user->id,
                     'user_email' => $user->email,
+                    'user_role' => $user->role, // Fetch the user's role
                     'logged_in' => true,
                 ]);
 
@@ -117,7 +119,82 @@ class AuthController extends BaseController
     // Logout functionality
     public function logout()
     {
-        session()->remove(['user_id', 'user_email', 'logged_in']);
+        session()->remove(['user_id', 'user_email', 'user_role', 'logged_in']);
         return redirect()->to('/login')->with('success', 'You have logged out successfully.');
     }
+
+    // Delete account functionality
+    public function deleteAccount()
+    {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login')->with('error', 'You need to log in to delete your account.');
+        }
+
+        $userId = session()->get('user_id');
+
+        try {
+            $builder = $this->db->table('users');
+            $builder->where('id', $userId)->delete();
+
+            // Clear session and redirect
+            session()->destroy();
+            return redirect()->to('/')->with('success', 'Your account has been deleted successfully.');
+        } catch (DataException $e) {
+            log_message('error', 'Error in delete account process: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Error: Unable to delete account.');
+        }
+    }
+
+    // Change password functionality
+    public function changePassword()
+    {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login')->with('error', 'You need to log in to change your password.');
+        }
+
+        return view('auth/change_password');
+    }
+
+    public function processChangePassword()
+    {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login')->with('error', 'You need to log in to change your password.');
+        }
+
+        $userId = session()->get('user_id');
+        $currentPassword = $this->request->getPost('current_password');
+        $newPassword = $this->request->getPost('new_password');
+        $confirmPassword = $this->request->getPost('confirm_password');
+
+        if (empty($currentPassword) || empty($newPassword) || empty($confirmPassword)) {
+            return redirect()->back()->with('error', 'All fields are required.');
+        }
+
+        if ($newPassword !== $confirmPassword) {
+            return redirect()->back()->with('error', 'New password and confirmation do not match.');
+        }
+
+        try {
+            $builder = $this->db->table('users');
+            $user = $builder->where('id', $userId)->get()->getRow();
+
+            if ($user && password_verify($currentPassword, $user->password)) {
+                $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+
+                $builder->where('id', $userId)->update(['password' => $hashedPassword, 'updated_at' => Time::now()]);
+                return redirect()->to('/')->with('success', 'Your password has been changed successfully.');
+            } else {
+                return redirect()->back()->with('error', 'Current password is incorrect.');
+            }
+
+        } catch (DataException $e) {
+            log_message('error', 'Error in change password process: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Error: Unable to change password.');
+        }
+    }
 }
+
+/*if (session()->get('user_role') !== 'admin') {
+    return redirect()->to('/unauthorized')->with('error', 'You do not have permission to access this page.');
+}
+*/
