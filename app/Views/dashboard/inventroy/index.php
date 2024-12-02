@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory </title>
-    <link rel="stylesheet" href="<?= base_url('assets/style/main.css')?>">
+    <link rel="stylesheet" href="<?= base_url('assets/style/main.css') ?>">
 </head>
+
 <body>
     <div>
         <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
-            <?= view('dashboard/sidemenu');?>
+            <?= view('dashboard/sidemenu'); ?>
 
 
             <div class="flex flex-col flex-1 overflow-hidden">
                 <!-- header -->
-                <?= view('dashboard/header');?>
-
+                <?= view('dashboard/header'); ?>
                 <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 font-poppins">
                     <div class="container px-6 py-8 mx-auto">
-
-
                         <div class="mt-4">
+                     
+
                             <h1 class="text-4xl font-semibold mb-6 text-[#1F2123]">Inventory</h1>
+
+
+
                             <div class="flex flex-wrap -mx-6">
 
                                 <div class="w-full px-6 sm:w-1/2 xl:w-1/3">
@@ -124,7 +128,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="<?= base_url('assets/js/main.js')?>"></script>
+    <script src="<?= base_url('assets/js/main.js') ?>"></script>
 
 </body>
+
 </html>

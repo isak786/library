@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 
 // Public routes
 $routes->get('/', 'Home::index');
+$routes->get('/addtocart', 'addtocart::addtocart');
 $routes->get('/login', 'AuthController::login');
 $routes->get('/register', 'AuthController::register');
 
