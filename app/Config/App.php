@@ -18,7 +18,6 @@ class App extends BaseConfig
      */
 
     public string $baseURL = 'http://localhost/library/public';
-    
 
 
     /**
