@@ -26,3 +26,17 @@ $routes->get('/branchlibraries', 'BranchLibrarian::index');
 $routes->get('/auth/changePassword', 'AuthController::changePassword');
 $routes->post('/auth/processChangePassword', 'AuthController::processChangePassword');
 $routes->post('/auth/deleteAccount', 'AuthController::deleteAccount');
+
+$routes->get('/admin/dashboard', 'AuthController::adminDashboard');
+$routes->get('/admin/deleteUser', 'AuthController::deleteUser');
+$routes->get('/admin/editUser', 'AuthController::editUser');
+
+$routes->get('/admin', 'Admin::index');
+$routes->get('/admin/addUser', 'Admin::addUser');
+
+$routes->post('/admin/saveUser', 'Admin::saveUser');
+$routes->get('/admin/editUser/(:num)', 'Admin::editUser/$1');
+
+$routes->post('/admin/updateUser/(:num)', 'Admin::updateUser/$1');
+$routes->get('/admin/deleteUser/(:num)', 'Admin::deleteUser/$1');
+

@@ -22,6 +22,17 @@ class AuthController extends BaseController
         return view('auth/register');
     }
 
+    public function adminDashboard(){
+        return view('admin/dashboard');
+    }
+
+    public function addUser(){
+        return view('admin/addUser');
+    }
+
+    public function editUser(){
+        return view('admin/editUser');
+    }
     // Process the sign-up form submission
     public function processSignup()
     {
