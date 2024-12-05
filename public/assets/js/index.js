@@ -11,3 +11,36 @@ window.addEventListener("scroll", function () {
 });
 
 
+
+
+const booksbtn = document.getElementById('books');
+    const cdsbtn = document.getElementById('cds');
+    const gamesbtn = document.getElementById('games');
+    const bookscontent = document.getElementById('bookscard');
+    const cdscontent = document.getElementById('cdscard');
+    const gamescontent = document.getElementById('gamescard');
+
+
+    function showSection(selectedContent) {
+      const allSections = [bookscontent, cdscontent, gamescontent];
+      allSections.forEach((section) => {
+        if (section === selectedContent) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
+    }
+
+
+    booksbtn.addEventListener('click', () => {
+      showSection(bookscontent);
+    });
+
+    cdsbtn.addEventListener('click', () => {
+      showSection(cdscontent);
+    });
+
+    gamesbtn.addEventListener('click', () => {
+      showSection(gamescontent);
+    });

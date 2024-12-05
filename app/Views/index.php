@@ -44,10 +44,10 @@
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav mx-auto gap-4 mt-2">
-            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Books/Journals</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">CDs/DVDs</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Games</a></li>
+            <li class="nav-item"><a class="nav-link" id="home" href="<?= site_url('/') ?>">Home</a></li>
+            <li class="nav-item"><a class="nav-link" id="books" href="#bookscard">Books/Journals</a></li>
+            <li class="nav-item"><a class="nav-link" id="cds" href="#cdscard">CDs/DVDs</a></li>
+            <li class="nav-item"><a class="nav-link" id="games" href="#gamescard">Games</a></li>
           </ul>
           <div class="d-flex gap-3 mt-2">
             <a href="<?= site_url('login') ?>" class="btn btn-login">Login</a>
@@ -89,60 +89,236 @@
     </div>
   </section>
   <!-- Featured Books Section -->
-  <section>
+  <section class="tab-content active" id="bookscard">
     <div class="container mt-5">
-      <h1 class="feturedheading ">Featured Books</h1>
+      <h1 class="feturedheading">Featured Books</h1>
+      <div class="line"></div>
+      <div class="row justify-content-center">
+
+        <!-- Book Card 1 -->
+        <div class="col-lg-3 col-md-6 mt-3 d-flex justify-content-center">
+          <a href="<?= site_url('addtocart') ?>" class="text-decoration-none">
+            <div class="book-card">
+              <img src="<?= base_url('assets/images/book2.png') ?>" alt="Skyshade Book Cover" class="book-image" />
+              <div class="book-info text-center">
+                <h3 class="book-title">Skyshade</h3>
+                <p class="book-author">Alex Aster</p>
+                <p class="book-type">Hardback</p>
+                <p class="book-price">
+                  <span class="original-price">£14.99</span>
+                  <span class="discounted-price">£12.99</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Book Card 2 -->
+        <div class="col-lg-3 col-md-6 mt-3 d-flex justify-content-center">
+          <a href="<?= site_url('addtocart') ?>" class="text-decoration-none">
+            <div class="book-card">
+              <img src="<?= base_url('assets/images/book3.png') ?>" alt="Skyshade Book Cover" class="book-image" />
+              <div class="book-info text-center">
+                <h3 class="book-title">Skyshade</h3>
+                <p class="book-author">Alex Aster</p>
+                <p class="book-type">Hardback</p>
+                <p class="book-price">
+                  <span class="original-price">£14.99</span>
+                  <span class="discounted-price">£12.99</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Book Card 3 -->
+        <div class="col-lg-3 col-md-6 mt-3 d-flex justify-content-center">
+          <a href="<?= site_url('addtocart') ?>" class="text-decoration-none">
+            <div class="book-card">
+              <img src="<?= base_url('assets/images/book2.png') ?>" alt="Skyshade Book Cover" class="book-image" />
+              <div class="book-info text-center">
+                <h3 class="book-title">Skyshade</h3>
+                <p class="book-author">Alex Aster</p>
+                <p class="book-type">Hardback</p>
+                <p class="book-price">
+                  <span class="original-price">£14.99</span>
+                  <span class="discounted-price">£12.99</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Book Card 4 -->
+        <div class="col-lg-3 col-md-6 mt-3 d-flex justify-content-center">
+          <a href="<?= site_url('addtocart') ?>" class="text-decoration-none">
+            <div class="book-card">
+              <img src="<?= base_url('assets/images/book3.png') ?>" alt="Skyshade Book Cover" class="book-image" />
+              <div class="book-info text-center">
+                <h3 class="book-title">Skyshade</h3>
+                <p class="book-author">Alex Aster</p>
+                <p class="book-type">Hardback</p>
+                <p class="book-price">
+                  <span class="original-price">£14.99</span>
+                  <span class="discounted-price">£12.99</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured CDS Section -->
+
+  <section class="tab-content" id="cdscard">
+    <div class="container mt-5">
+      <h1 class="feturedheading ">Featured CD/DVD'S</h1>
       <div class="line"></div>
       <div class="row justify-content-center">
 
         <div class="col-lg-3 col-md-6 mt-3 d-flex justify-content-center">
-          <div class="book-card">
-            <img src="<?= base_url('assets/images/book2.png') ?>" alt="Book Image" class="book-image" />
-            <div class="book-info">
-              <h3 class="book-title">Book Title</h3>
-              <p class="book-author">by Author Name</p>
-              <p class="book-description">
-                Short description about the book goes here. It could be an overview or key points.
-              </p>
+          <a href="<?= site_url('addtocart') ?>" class="text-decoration-none">
+            <div class="book-card">
+              <img src="<?= base_url('assets/images/CD1.jpg') ?>" alt="Skyshade Book Cover" class="book-image" />
+              <div class="book-info text-center">
+                <h3 class="book-title">Skyshade</h3>
+                <p class="book-author">Alex Aster</p>
+                <p class="book-type">Hardback</p>
+                <p class="book-price">
+                  <span class="original-price">£14.99</span>
+                  <span class="discounted-price">£12.99</span>
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
         <div class="col-lg-3 col-md-6 mt-3 d-flex justify-content-center">
-          <div class="book-card">
-            <img src="<?= base_url('assets/images/book3.png') ?>" alt="Book Image" class="book-image" />
-            <div class="book-info">
-              <h3 class="book-title">Book Title</h3>
-              <p class="book-author">by Author Name</p>
-              <p class="book-description">
-                Short description about the book goes here. It could be an overview or key points.
-              </p>
+          <a href="<?= site_url('addtocart') ?>" class="text-decoration-none">
+            <div class="book-card">
+              <img src="<?= base_url('assets/images/CD2.jpg') ?>" alt="Skyshade Book Cover" class="book-image" />
+              <div class="book-info text-center">
+                <h3 class="book-title">Skyshade</h3>
+                <p class="book-author">Alex Aster</p>
+                <p class="book-type">Hardback</p>
+                <p class="book-price">
+                  <span class="original-price">£14.99</span>
+                  <span class="discounted-price">£12.99</span>
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
         <div class="col-lg-3 col-md-6 mt-3 d-flex justify-content-center">
-          <div class="book-card">
-            <img src="<?= base_url('assets/images/book3.png') ?>" alt="Book Image" class="book-image" />
-            <div class="book-info">
-              <h3 class="book-title">Book Title</h3>
-              <p class="book-author">by Author Name</p>
-              <p class="book-description">
-                Short description about the book goes here. It could be an overview or key points.
-              </p>
+          <a href="<?= site_url('addtocart') ?>" class="text-decoration-none">
+            <div class="book-card">
+              <img src="<?= base_url('assets/images/CD4.jpg') ?>" alt="Skyshade Book Cover" class="book-image" />
+              <div class="book-info text-center">
+                <h3 class="book-title">Skyshade</h3>
+                <p class="book-author">Alex Aster</p>
+                <p class="book-type">Hardback</p>
+                <p class="book-price">
+                  <span class="original-price">£14.99</span>
+                  <span class="discounted-price">£12.99</span>
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
         <div class="col-lg-3 col-md-6 mt-3 d-flex justify-content-center">
-          <div class="book-card">
-            <img src="<?= base_url('assets/images/book2.png') ?>" alt="Book Image" class="book-image" />
-            <div class="book-info">
-              <h3 class="book-title">Book Title</h3>
-              <p class="book-author">by Author Name</p>
-              <p class="book-description">
-                Short description about the book goes here. It could be an overview or key points.
-              </p>
+          <a href="<?= site_url('addtocart') ?>" class="text-decoration-none">
+            <div class="book-card">
+              <img src="<?= base_url('assets/images/CD5.jpg') ?>" alt="Skyshade Book Cover" class="book-image" />
+              <div class="book-info text-center">
+                <h3 class="book-title">Skyshade</h3>
+                <p class="book-author">Alex Aster</p>
+                <p class="book-type">Hardback</p>
+                <p class="book-price">
+                  <span class="original-price">£14.99</span>
+                  <span class="discounted-price">£12.99</span>
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- Featured Games Section -->
+
+  <section class="tab-content" id="gamescard">
+    <div class="container mt-5">
+      <h1 class="feturedheading ">Featured Games</h1>
+      <div class="line"></div>
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-6 mt-3 d-flex justify-content-center">
+          <a href="<?= site_url('addtocart') ?>" class="text-decoration-none">
+            <div class="book-card">
+              <img src="<?= base_url('assets/images/gamebook4.jpeg') ?>" alt="Skyshade Book Cover" class="book-image" />
+              <div class="book-info text-center">
+                <h3 class="book-title">Skyshade</h3>
+                <p class="book-author">Alex Aster</p>
+                <p class="book-type">Hardback</p>
+                <p class="book-price">
+                  <span class="original-price">£14.99</span>
+                  <span class="discounted-price">£12.99</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6 mt-3 d-flex justify-content-center">
+          <a href="<?= site_url('addtocart') ?>" class="text-decoration-none">
+            <div class="book-card">
+              <img src="<?= base_url('assets/images/gamebook3.jpeg') ?>" alt="Skyshade Book Cover" class="book-image" />
+              <div class="book-info text-center">
+                <h3 class="book-title">Skyshade</h3>
+                <p class="book-author">Alex Aster</p>
+                <p class="book-type">Hardback</p>
+                <p class="book-price">
+                  <span class="original-price">£14.99</span>
+                  <span class="discounted-price">£12.99</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6 mt-3 d-flex justify-content-center">
+          <a href="<?= site_url('addtocart') ?>" class="text-decoration-none">
+            <div class="book-card">
+              <img src="<?= base_url('assets/images/gamebook2.jpeg') ?>" alt="Skyshade Book Cover" class="book-image" />
+              <div class="book-info text-center">
+                <h3 class="book-title">Skyshade</h3>
+                <p class="book-author">Alex Aster</p>
+                <p class="book-type">Hardback</p>
+                <p class="book-price">
+                  <span class="original-price">£14.99</span>
+                  <span class="discounted-price">£12.99</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6 mt-3 d-flex justify-content-center">
+          <a href="<?= site_url('addtocart') ?>" class="text-decoration-none">
+            <div class="book-card">
+              <img src="<?= base_url('assets/images/gamebook1.jpeg') ?>" alt="Skyshade Book Cover" class="book-image" />
+              <div class="book-info text-center">
+                <h3 class="book-title">Skyshade</h3>
+                <p class="book-author">Alex Aster</p>
+                <p class="book-type">Hardback</p>
+                <p class="book-price">
+                  <span class="original-price">£14.99</span>
+                  <span class="discounted-price">£12.99</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -424,9 +600,9 @@
   </section>
 
 
-
-
-
+  <script>
+    
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script src="<?= base_url('assets/js/index.js') ?>"></script>
 </body>

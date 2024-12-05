@@ -16,7 +16,7 @@
         <div class="col-md-6 col-lg-7 left-section">
           <div class="content-wrapper text-center">
             <div class="rounded-box p-5">
-              <h1 class="left-title mb-3">Log In, Account!</h1>
+              <h1 class="left-title mb-3">Don't Have An Account Yet?</h1>
               <p class="left-description mb-4">
                 Sign up if you still don't have an account ...
               </p>
@@ -31,13 +31,15 @@
         <div class="col-md-8 col-lg-5">
           <div class="form-container">
             <h2 class="text-start mb-5">Sign In</h2>
-            <form action="<?= site_url('/') ?>">
+            <form action="<?= site_url('/auth/processLogin') ?>" method="post">
               <div class="mb-3 icon-input">
                 <span class="form-icon"><i class="bi bi-envelope"></i></span>
                 <input
                   type="email"
                   class="form-control"
                   placeholder="Email"
+                  name="email"
+                  id="email"
                   required
                 />
               </div>
@@ -48,6 +50,8 @@
                   type="password"
                   class="form-control"
                   placeholder="Password"
+                  name="password"
+                  id="passsword"
                   required
                 />
               </div>
