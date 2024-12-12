@@ -31,7 +31,7 @@
         <div class="col-md-8 col-lg-5">
           <div class="form-container">
             <h2 class="text-start mb-5">Sign In</h2>
-            <form action="<?= site_url('/') ?>">
+            <form action="<?= site_url('/guest') ?>">
               <div class="mb-3 icon-input">
                 <span class="form-icon"><i class="bi bi-envelope"></i></span>
                 <input
