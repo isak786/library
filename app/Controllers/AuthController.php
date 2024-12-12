@@ -85,6 +85,59 @@ class AuthController extends BaseController
         }
     }
 
+    public function processStaffSignup()
+{
+    // Get form data
+    $firstName = $this->request->getPost('first_name');
+    $surname = $this->request->getPost('surname');
+    $email = $this->request->getPost('email');
+    $phone = $this->request->getPost('phone');
+    $dob = $this->request->getPost('dob');
+    $gender = $this->request->getPost('gender');
+    $password = $this->request->getPost('password');
+    $role = $this->request->getPost('role'); // Get the role from the form
+
+    // Validate form data
+    if (empty($firstName) || empty($surname) || empty($email) || empty($phone) || empty($dob) || empty($gender) || empty($password) || empty($role)) {
+        return redirect()->back()->with('error', 'All fields are required!');
+    }
+
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return redirect()->back()->with('error', 'Invalid email format.');
+    }
+
+    // Hash the password
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    try {
+        // Insert user into the database
+        $builder = $this->db->table('users');
+        $userData = [
+            'first_name' => $firstName,
+            'surname' => $surname,
+            'email' => $email,
+            'phone' => $phone,
+            'dob' => $dob,
+            'gender' => $gender,
+            'password' => $hashedPassword,
+            'role' => $role, // Use the role from the form
+            'created_at' => Time::now(),
+            'updated_at' => Time::now(),
+        ];
+        $builder->insert($userData);
+
+        // Redirect to admin page with success message
+        return redirect()->to('/admin')->with('success', 'Sign-up successful! You can now log in.');
+
+    } catch (DataException $e) {
+        // Log and handle any exceptions
+        log_message('error', 'Error in sign-up process: ' . $e->getMessage());
+        return redirect()->back()->with('error', 'Error: Unable to register user.');
+    }
+}
+
+
     // Display the login form
     public function login()
     {
@@ -114,11 +167,21 @@ class AuthController extends BaseController
                     'user_role' => $user->role, // Fetch the user's role
                     'logged_in' => true,
                 ]);
-
-                return redirect()->to('/contracts')->with('success', 'Login successful!');
+            
+                // Redirect based on role
+                if ($user->role === 'Guest') {
+                    return redirect()->to('/')->with('success', 'Login successful!');
+                } elseif ($user->role === 'Admin') {
+                    return redirect()->to('/contracts')->with('success', 'Login successful!');
+                }
+            
+                // Default fallback if role does not match expected values
+                return redirect()->to('/')->with('error', 'Unauthorized role!');
             } else {
-                return redirect()->back()->with('error', 'Invalid email or password.');
+                // Handle invalid login
+                return redirect()->to('/login')->with('error', 'Invalid email or password.');
             }
+            
 
         } catch (DataException $e) {
             // Log and handle any exceptions

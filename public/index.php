@@ -1,4 +1,5 @@
 <?php
+define('CI_ENVIRONMENT', 'development');
 
 /*
  *---------------------------------------------------------------
@@ -33,6 +34,7 @@ define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 if (getcwd() . DIRECTORY_SEPARATOR !== FCPATH) {
     chdir(FCPATH);
 }
+
 
 /*
  *---------------------------------------------------------------
