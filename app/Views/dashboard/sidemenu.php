@@ -87,5 +87,18 @@
                             <span class="mx-3" onclick="window.location.href='<?= base_url('/branches') ?>'">Branches</span>
                         </a>
                     </div>
+                    <div x-data="{ open: false }">
+
+                        <a href="#" @click.prevent="open = !open"
+                            class="flex items-center px-6 py-3 mt-4 text-gray-100 transition duration-300 ease-in-out rounded-md">
+
+                            <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2z" />
+                            </svg>
+                            <span class="mx-3" onclick="window.location.href='<?= base_url('/admin') ?>'">System Dashboard</span>
+                        </a>
+                    </div>
                 </nav>
             </div>

@@ -10,3 +10,4 @@ class AddToCart extends BaseController
         return view('addtocart');
     }
 }
+
