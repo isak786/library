@@ -51,3 +51,11 @@ $routes->get('/admin/deleteUser/(:num)', 'Admin::deleteUser/$1');
     $routes->get('/branches', 'BranchesController::index');
     $routes->get('/branchlibraries', 'BranchLibrarian::index');
 //});
+$routes->get('/guest','GuestController::index');
+$routes->get('/accountmanagement','AcManagementController::index');
+
+
+$routes->get('/inventory','InventoryController::index');
+$routes->get('/contracts','ContractsController::index');
+$routes->get('/branches','BranchesController::index');
+$routes->get('/branchlibraries','BranchLibrarian::index');
