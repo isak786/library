@@ -2,11 +2,11 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class AcManagementController extends BaseController
 {
     public function index()
     {
         // Load the index view
-        return view('index');
+        return view('guest/accountmanagement/index');
     }
 }

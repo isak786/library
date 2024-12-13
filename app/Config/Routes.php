@@ -9,6 +9,7 @@ use CodeIgniter\Router\RouteCollection;
 // Public routes accessible by all users
 $routes->get('/', 'Home::index');
 $routes->get('/addtocart', 'addtocart::addtocart');
+$routes->get('/addtocart', 'addtocart::addtocart');
 $routes->get('/login', 'AuthController::login');
 $routes->get('/register', 'AuthController::register');
 
