@@ -9,6 +9,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/addtocart', 'addtocart::addtocart');
 $routes->get('/login', 'AuthController::login');
 $routes->get('/register', 'AuthController::register');
+$routes->get('/guest','GuestController::index');
+$routes->get('/accountmanagement','AcManagementController::index');
 
 
 $routes->get('/inventory','InventoryController::index');

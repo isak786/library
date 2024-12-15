@@ -1,33 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory </title>
     <link rel="stylesheet" href="<?= base_url('assets/style/main.css') ?>">
 </head>
-
 <body>
     <div>
         <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
             <?= view('dashboard/sidemenu'); ?>
-
-
             <div class="flex flex-col flex-1 overflow-hidden">
                 <!-- header -->
                 <?= view('dashboard/header'); ?>
                 <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 font-poppins">
                     <div class="container px-6 py-8 mx-auto">
                         <div class="mt-4">
-                     
-
                             <h1 class="text-4xl font-semibold mb-6 text-[#1F2123]">Inventory</h1>
-
-
-
                             <div class="flex flex-wrap -mx-6">
-
                                 <div class="w-full px-6 sm:w-1/2 xl:w-1/3">
                                     <div
                                         class="flex items-center px-6 py-8 bg-white rounded-lg shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105">
@@ -42,14 +32,12 @@
                                                     fill="currentColor" />
                                             </svg>
                                         </div>
-
                                         <div class="ml-6">
                                             <h4 class="text-2xl font-semibold text-[#1F2123]">8,282</h4>
                                             <div class="text-[#6bD0FF] text-lg">Books</div>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="w-full px-6 mt-6 sm:w-1/2 xl:w-1/3 sm:mt-0">
                                     <div
                                         class="flex items-center px-6 py-8 bg-white rounded-lg shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105">
@@ -69,7 +57,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="w-full px-6 mt-6 sm:w-1/2 xl:w-1/3 xl:mt-0">
                                     <div
                                         class="flex items-center px-6 py-8 bg-white rounded-lg shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105">
@@ -87,7 +74,6 @@
                                                     fill="currentColor" />
                                             </svg>
                                         </div>
-
                                         <div class="ml-6">
                                             <h4 class="text-2xl font-semibold text-[#1F2123]">215,542</h4>
                                             <div class="text-[#6bD0FF] text-lg">Games</div>
@@ -97,6 +83,7 @@
                             </div>
                             <div class="mt-8 flex flex-wrap justify-center space-x-6">
                                 <button
+                                    id="openModal"
                                     class="px-6 py-3 mt-3 bg-[#1A74E2] text-white font-semibold rounded-lg shadow-md hover:bg-[#155a8a] transition duration-300 ease-in-out transform hover:scale-105">
                                     Add Book
                                 </button>
@@ -112,24 +99,84 @@
                                 </button>
                             </div>
                         </div>
-
-                        <h1 class="text-4xl mt-10 font-semibold text-[#1F2123]">Borrowing Trends</h1>
-                        <div class="mt-8 bg-white rounded-md shadow-lg p-6">
-                            <div id="chart" class="h-64"></div>
-                        </div>
-
+                        <h1 class="text-4xl mt-10 font-semibold text-[#1F2123]">
+              Borrowing Trends
+            </h1>
+            <div class="mt-8 bg-white rounded-md shadow-lg p-6">
+              <div id="chart" class="h-64"></div>
+            </div>
                     </div>
                 </main>
-
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="<?= base_url('assets/js/main.js') ?>"></script>
+    <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-96">
+            <div class="flex justify-between items-center">
+                <h2 class="text-lg font-bold">Add a New Book</h2>
+                <button id="closeModal" class="text-gray-600 hover:text-gray-900 text-xl font-bold">
+                    &times;
+                </button>
+            </div>
+            <div class="mt-4">
 
+                <label for="bookName" class="block text-sm font-medium text-gray-700">Book Name</label>
+                <input
+                    type="text"
+                    id="bookName"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    placeholder="Enter book name">
+            </div>
+
+            <div class="mt-4">
+
+                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                <textarea
+                    id="description"
+                    rows="4"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    placeholder="Enter book description"></textarea>
+            </div>
+
+            <div class="mt-4">
+
+                <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+                <input
+                    type="number"
+                    id="price"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    placeholder="Enter book price">
+            </div>
+
+            <div class="mt-4">
+
+                <label for="file" class="block text-sm font-medium text-gray-700">Attach File</label>
+                <input
+                    type="file"
+                    id="file"
+                    class="mt-1 block w-full text-gray-700 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+
+            <div class="mt-4 flex justify-end space-x-4">
+                <button id="closeModalBtn" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400">
+                    Close
+                </button>
+                <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+    defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="<?= base_url('assets/js/index.js') ?>"></script>
+    <script src="<?= base_url('assets/js/main.js') ?>"></script>
 </body>
 
 </html>

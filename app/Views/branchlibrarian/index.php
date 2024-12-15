@@ -137,6 +137,23 @@
               </div>
 
             </div>
+            <div class="mt-8 flex flex-wrap justify-center space-x-6">
+                                <button
+                                  
+                                    class="px-6 py-3 mt-3 bg-[#1A74E2] text-white font-semibold rounded-lg shadow-md hover:bg-[#155a8a] transition duration-300 ease-in-out transform hover:scale-105">
+                                    Add Book
+                                </button>
+
+                                <button
+                                    class="px-6 py-3 mt-3 bg-[#FF6B6B] text-white font-semibold rounded-lg shadow-md hover:bg-[#c74f4f] transition duration-300 ease-in-out transform hover:scale-105">
+                                    Remove Book
+                                </button>
+
+                                <button
+                                    class="px-6 py-3 mt-3 bg-[#6BD0FF] text-white font-semibold rounded-lg shadow-md hover:bg-[#4aa0c2] transition duration-300 ease-in-out transform hover:scale-105">
+                                    View Current Books
+                                </button>
+                            </div>
             <form class="max-w-7xl mx-auto mt-6 flex items-center bg-white rounded-lg shadow" action="<?= base_url('search') ?>" method="GET">
               <div class="flex-1 px-4 py-2">
                 <input type="text" name="q" class="w-full px-4 py-2 text-gray-700 bg-transparent border-none focus:outline-none" placeholder="Search...">

@@ -72,22 +72,7 @@
     </div>
   </section>
   <!-- About Section -->
-  <section class="container mt-5">
-    <div class="row align-items-center justify-content-center">
-      <div class="col-md-6">
-        <h3>About</h3>
-        <div class="line"></div>
-        <p class="parablog ">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate, corrupti consequuntur? Laboriosam quos quidem nobis quod harum, reprehenderit ratione beatae distinctio, facilis placeat explicabo ipsum tenetur, ab eius fugit accusamus?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit sapiente atque vitae dolor facilis itaque nam a unde quos quaerat sunt velit error saepe, exercitationem ratione qui fugit, optio iste!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ducimus voluptates quo inventore placeat, blanditiis dolorem quam saepe distinctio enim consectetur quis asperiores quia maiores maxime fuga veritatis harum dolorum.
-        </p>
-      </div>
-      <div class="col-md-6 text-center">
-        <img src="<?= base_url('assets/images/signUp2.png') ?>" class="grilimg" alt="">
-      </div>
-    </div>
-  </section>
+ 
   <!-- Featured Books Section -->
   <section class="tab-content active" id="bookscard">
     <div class="container mt-5">
